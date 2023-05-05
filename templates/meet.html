@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Встреча</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/meet.min.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="meet">
+    <div class="container">
+        <div class="meet__main">
+            <form method="POST">
+                <div class="meet__input-label">Тема:</div>
+                <input type="text" minlength="3" maxlength="40" required placeholder="Тема" class="meet__input" value="{{ meeting.title }}" name="title">
+                
+                <div class="meet__input-label">Дата проведения:</div>                
+                <input type="date" min="{{ data_today }}" required placeholder="Дата" class="meet__input-time" name="date">
+                
+                <div class="meet__input-label">Аудитория:</div>
+                <select name="classroom" required class="meet__input-select">
+                    {% for i in data_classrooms %}
+                        <option value="{{ i.title }}">{{ i.title }}</option>
+                    {% endfor %}
+                </select>
+
+                <div class="meet__input-label">Время:</div>
+                <input type="time" required placeholder="Время" value="{{ meeting.time }}" name="time" class="meet__input-time">
+
+                <div class="meet__input-label">Статус:</div>
+                <select name="status" class="meet__input-select">
+                    <option value="Запланирована">Запланирована</option>
+                    <option value="Проходит">Проходит</option>
+                    <option value="Завершена">Завершена</option>
+                </select>
+
+                <div class="meet__input-label">Описание:</div>
+                <textarea name="descr" class="meet__textarea">{{ meeting.descr }}</textarea>
+            
+                <button class="meet__save">Сохранить</button>
+                <button class="meet__delete">Удалить</button>
+                <div class="meet__saving"></div>
+            </form>
+        </div>
+    </div>
+</section>
+<script>
+    let meeting = {
+        'date': '{{ meeting.date }}',
+        'classroom': '{{ meeting.classroom }}',
+        'time': '{{ meeting.time }}',
+        'status': '{{ meeting.status }}',
+    };
+</script>
+<script src="{{ url_for('static', filename='js/meet.js') }}"></script>
+
+{% endblock %}

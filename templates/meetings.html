@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Управление встречами</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/meetings.min.css') }}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="meetings">
+    <div class="container">
+        <div class="create__background create__background-hidden"></div>
+
+        <div class="create create-hidden">
+            <div class="create__close">Закрыть</div>
+            <div class="create__headline">Создание встречи</div>
+
+            <div class="create__form">
+                <form method="POST" data-form="create">
+                    <div class="create__text">Тема:</div>
+                    <input type="text" minlength="3" maxlength="40" required placeholder="Тема" name="title" class="create__input">
+
+                    <div class="create__text">Дата проведения:</div>
+                    <input type="date" min="{{ data_today }}" required placeholder="Дата" name="date" class="create__input">
+
+                    <div class="create__text">Аудитория:</div>
+                    <select name="classroom" required class="create__select">
+                        <option value="none" disabled selected></option>
+                        {% for i in data_classrooms %}
+                            <option value="{{ i.title }}">{{ i.title }}</option>
+                        {% endfor %}
+                    </select>
+
+                    <div class="create__text">Время:</div>
+                    <input type="time" placeholder="Время" name="time" class="create__input">
+
+                    <div class="create__text">Описание:</div>
+                    <textarea placeholder="Описание" name="descr" class="create__descr"></textarea>
+
+                    <input type="submit" value="Создать" class="create__button">
+                </form>
+                <div class="create__status"></div>
+            </div>
+        </div>
+
+        <button class="meetings__button">Создать встречу</button>
+
+        {% for i in data_meetings %}
+        <a href="{{ url_for('meet', id=i.id) }}">
+            <div class="meetings__elem">
+                <div class="meetings__title">{{ i.title }}</div>
+                <div class="meetings__date">{{ i.date }}</div>
+                <div class="meetings__date">{{ i.time }}</div>
+            </div>
+        </a>
+        {% endfor %}
+
+
+    </div>
+</section>
+<script src="{{ url_for('static', filename='js/meetings.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap')
+
+*
+	padding: 0
+	margin: 0
+	box-sizing: border-box
+	font-family: Ubuntu
+	font-weight: 300
+
+.meet
+	margin-bottom: 20px
+	&__main
+		width: 500px
+		padding: 20px
+		margin: 0 auto
+		border: 2px solid #1c1c1c
+	&__input
+		display: block
+		padding: 0 8px
+		font-size: 18px
+		width: 100%
+		height: 40px
+		border: 2px solid #1c1c1c
+		margin-bottom: 20px
+		border-radius: 6px
+		&:focus
+			outline: none
+	&__input-label
+		font-weight: 500
+		font-size: 20px
+		width: 100%
+		height: 20px
+		line-height: 20px
+		margin-bottom: 10px
+	&__input-time
+		display: block
+		width: 180px
+		height: 30px
+		margin-bottom: 20px
+	&__input-select
+		display: block
+		width: 210px
+		height: 30px
+		margin-bottom: 20px
+		font-size: 18px
+	&__textarea
+		display: block
+		padding: 8px
+		font-size: 18px
+		width: 100%
+		height: 120px
+		border: 2px solid #1c1c1c
+		margin-bottom: 40px
+		border-radius: 6px
+		resize: none
+	button
+		display: block
+		width: 160px
+		height: 40px
+		border-radius: 4px
+		font-size: 18px
+		border: 2px solid black
+		font-weight: 500
+		margin-bottom: 15px
+		&:hover
+			cursor: pointer
+	&__save
+		background-color: green
+		color: white
+	&__delete
+		background-color: red
+	&__saving
+		width: 100%
+		min-height: 20px
+		line-height: 20px
+		font-size: 17px
+		margin-bottom: 10px
+
+@media (max-width: 768px)
+	.meet
+		&__main
+			width: 400px
+			padding: 14px
+		&__input
+			padding: 0 6px
+			font-size: 16px
+			height: 35px
+		&__input-label
+			font-size: 18px
+			height: 16px
+			line-height: 16px
+		&__input-select
+			font-size: 18px
+		&__textarea
+			padding: 6px
+			font-size: 16px
+			margin-bottom: 30px
+		&__saving
+			min-height: 16px
+			line-height: 16px
+			font-size: 15px
+		
+
+@media (max-width: 576px)
+	.meet
+		&__main
+			width: 94%
+			max-width: 400px
+			padding: 10px
+		&__input
+			padding: 0 5px
+			font-size: 15px
+			height: 30px
+			margin-bottom: 16px
+			border-radius: 4px
+		&__input-label
+			font-size: 17px
+		&__input-select
+			font-size: 16px
+		&__textarea
+			padding: 5px
+			font-size: 16px
+			height: 150px
+			border-radius: 5px
+		button
+			width: 130px
+			height: 30px
+		&__saving
+			min-height: 15px
+			line-height: 15px
+			font-size: 15px

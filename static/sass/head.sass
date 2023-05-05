@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap')
+	
+*
+	padding: 0
+	margin: 0
+	font-family: Ubuntu
+	font-weight: 300
+	box-sizing: border-box
+
+.container
+	width: 1100px
+	margin: 0 auto
+	
+header
+	user-select: none
+	display: block
+	height: 60px
+	background-color: #1c1c1c
+	margin-bottom: 60px
+.header__menu
+	height: 60px
+	width: 280px
+	margin: 0 auto
+	display: flex
+	font-size: 22px
+	flex-direction: row
+	justify-content: space-between
+	&__elem
+		display: block
+		text-decoration: none
+		color: white
+		line-height: 60px
+		font-weight: 500
+		i
+			color: white
+			font-size: 22px
+		&::after
+			content: ''
+			display: block
+			transition: .3s all
+			height: 2px
+			width: 0px
+			background-color: #fff
+			position: relative
+			top: -11px
+		&:hover
+			cursor: pointer
+			&::after
+				width: 100%
+
+@media (max-width: 1200px)
+	.container
+		width: 900px
+
+@media (max-width: 992px)
+	.container
+		width: 700px
+
+@media (max-width: 768px)
+	.container
+		width: 500px
+	header
+		height: 50px
+	.header__menu
+		font-size: 20px
+		width: 250px
+		height: 50px
+		&__elem
+			line-height: 50px
+
+@media (max-width: 576px)
+	.container
+		max-width: 500px
+		width: 80%
+	.header__menu
+		font-size: 18px
+		width: 210px

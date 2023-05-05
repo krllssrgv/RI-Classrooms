@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Главная</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.min.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="daily">
+    <div class="container">
+        <div class="daily__headline">Встречи, в которых вы принимаете участие</div>
+        <p>На календаре бордовым цветом отмечены те дни, в которые у вас что-то запланировано</p>
+
+        <div class="calendar">
+            <div class="calendar__week">ПН</div>
+            <div class="calendar__week">ВТ</div>
+            <div class="calendar__week">СР</div>
+            <div class="calendar__week">ЧТ</div>
+            <div class="calendar__week">Пт</div>
+            <div class="calendar__week">СБ</div>
+            <div class="calendar__week">ВС</div>
+        </div>
+
+        {% if user_role > 1 %}
+            <div class="daily__headline">Вы можете создавать собственные встречи:</div>
+            <a href="{{ url_for('meeting') }}">Управление встречами</a>
+        {% endif %}
+
+        <div class="daily__headline">Выбрать день для просмотра:</div>
+        <form data-type="date">
+            <input class="daily__choseDate" type="date" name="dateOfTimetable">
+        </form>
+
+        <div class="daily__headline">Назначенные встречи:</div>
+        <div class="daily__meetings"></div>
+    </div>
+</section> 
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

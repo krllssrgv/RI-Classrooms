@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Регистрация</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reg.min.css') }}">
+</head>
+<body>
+<div class="form">
+    <div class="form__headline">Регистрация</div>
+    <div class="form__another"><a href="{{ url_for('log') }}">Уже есть аккаунт? Войти!</a></div>
+
+    <form method="POST">
+        <input type="text" required placeholder="Ваш E-Mail" name="email-reg" class="form__input">
+        <div class="form__inputComment" data-inputProperty="email-reg">Неверный формат EMail</div>
+
+        <input type="text" required placeholder="Ваше имя" name="name-reg" class="form__input">
+        <div class="form__inputComment"></div>
+        <input type="text" required placeholder="Ваша фамилия" name="surname-reg" class="form__input">
+        <div class="form__inputComment"></div>
+        <input type="text" required placeholder="Ваше отчество" name="lastname-reg" class="form__input">
+        <div class="form__inputComment"></div>
+
+        <input type="password" required placeholder="Введите пароль" name="password-reg" class="form__input">
+        <div class="form__inputComment" data-inputProperty="password-reg">Пароль слишком легкий</div>
+
+        <input type="password" required placeholder="Повторите пароль" name="passwordRepeat-reg" class="form__input">
+        <div class="form__inputComment" data-inputProperty="passwordRepeat-reg">Пароли не совпадают</div>
+
+        <input type="submit" value="Зарегистрироваться" class="form__button form__button-block">
+    </form>
+    <div class="form__result"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/reg.js') }}"></script>
+</body>
+</html>

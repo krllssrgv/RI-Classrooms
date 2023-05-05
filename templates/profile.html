@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+<title>Профиль</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.min.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="profile">
+        <img src="{{ url_for('static', filename='img/user.png') }}" alt=User">
+
+        <div class="profile__elements">{{ user.surname }}</div>
+        <div class="profile__elements">{{ user.name }}</div>
+        <div class="profile__elements">{{ user.lastname }}</div>
+
+        <div class="profile__elements"></div>
+            
+        <div class="profile__elements">{{ user.email }}</div>
+        <div class="profile__elements">
+            <a href="#">Поменять пароль</a>
+        </div>
+
+        <div class="profile__elements"></div>
+
+        {% if user.role > 1 %}
+            <div class="profile__elements">
+                <a href="{{ url_for('meeting') }}">Управление встречами</a>
+            </div>
+        {% endif %}
+
+        {% if user.role > 2 %}
+            <div class="profile__elements">
+                <a href="{{ url_for('admin') }}">Панель администратора</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

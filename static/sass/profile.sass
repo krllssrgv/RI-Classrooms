@@ -1,0 +1,33 @@
+@import "head"
+
+.profile
+    max-width: 300px
+    margin: 0 auto
+    img
+        width: 110px
+        display: block
+        margin: 0 auto 30px auto
+    &__elements
+        line-height: 20px
+        height: 20px
+        margin-bottom: 16px
+        font-size: 26px
+        font-weight: 500
+        &:last-child
+            margin-bottom: 0px
+        a
+            text-decoration: underline
+            color: grey
+            font-size: 20px
+            font-weight: 300
+
+@media (max-width: 576px)
+    .profile
+        img
+            width: 80px
+        &__elements
+            width: 260px
+            font-size: 22px
+            margin-bottom: 10px
+            a
+                font-size: 18px
